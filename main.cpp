@@ -258,7 +258,7 @@ int main()
                         if (mes%2==1) cout << "Fecha valida!" <<endl;
                         else if (dia<=30) cout << "Fecha valida!" << endl;
                         else cout << "Fecha invalida!" <<endl;
-                    }
+                    }else cout << "Fecha valida!" <<endl;
                     }
                     else cout << "Fecha invalida!" <<endl;
                     break;}
