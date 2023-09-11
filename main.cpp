@@ -15,7 +15,6 @@ int main()
         cin>>opcion;
 
         switch(opcion){
-            int problema;
             case 1:{
             int ejercicio;
             cout<<"Ingrese el numero del ejercicio a probar"<<endl;
@@ -225,6 +224,7 @@ int main()
             break;
             }
             case 2:{
+            int problema;
             cout<<"Ingrese el numero del problema a probar"<<endl;
             cout<<"Ingrese 0 para retroceder"<<endl;
             cin>>problema;
