@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-    int opcion=1, problema;
+    int opcion=1;
     char caracter;
     while(opcion!=0){
         cout<<"Presione 1 para elegir ejercicios"<<endl;
@@ -15,6 +15,7 @@ int main()
         cin>>opcion;
 
         switch(opcion){
+            int problema;
             case 1:{
             int ejercicio;
             cout<<"Ingrese el numero del ejercicio a probar"<<endl;
