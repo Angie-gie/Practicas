@@ -67,26 +67,16 @@ void problema5(int num, char *cadena){
 }
 
 void problema7(char *c){
-    char norep[26];
-    bool flag=false;
-    int index=0;
-    for (int i=0;*(c+i)!='\0';i++){
-        char caracter=*(c+i);
-        for (int x=0;x<26;x++){
-            if(norep[x]==caracter){
-                flag=true;
-                break;
-            }
+    char norep[26] = {0}; // Inicializar con valores nulos
+    for (int i = 0; c[i] != '\0'; i++) {
+        char caracter = c[i] - 'a'; // Convertir el carácter a un índice de 0 a 25
+        if (norep[caracter] == 0) {
+            norep[caracter] = 1;
+            cout << c[i]; // Imprimir el carácter no repetido
         }
-        if(!flag){
-            norep[index]=caracter;
-            index++;
-        }
-        flag=false;
     }
-    norep[index]='\0';
-    cout<<"Original: "<<c<<endl;
-    cout<<"Sin repetidos: "<<norep<<endl;}
+    cout << endl;
+}
 
 long long int problema9(char *c, long long int n){
     long int num=0;
@@ -132,16 +122,11 @@ void problema11(char accion, char  letra, int numero){
 
 int problema13(int *mat){
 
-    int imagen[6][8],estrellas=0;
-    float formula;
-    for(int f=0,i=0;f<6;f++){
-        for(int c=0;c<8;c++){
-            imagen[f][c]=*(mat+i);
-        }
-    }
+    float formula=0;
+    int estrellas=0;
     for(int f=1;f<5;f++){
         for(int c=1;c<7;c++){
-            formula=(imagen[f][c]+imagen[f][c-1]+imagen[f][c+1]+imagen[f-1][c]+imagen[f+1][c])/5.0;
+            formula=(mat[f * 8 + c] + mat[f * 8 + c - 1] + mat[f * 8 + c + 1] + mat[(f - 1) * 8 + c] + mat[(f + 1) * 8 + c])/5.0;
             if (formula>6){
                 estrellas++;
             }
@@ -151,10 +136,10 @@ int problema13(int *mat){
 }
 
 void problema15(int *A, int *B, int *C){
-    int x1 = max(A[0], B[0]);
-    int y1 = max(A[1], B[1]);
-    int x2 = min(A[0] + A[2], B[0] + B[2]);
-    int y2 = min(A[1] + A[3], B[1] + B[3]);
+    int x1 = max(A[0], B[0]); //x sup izquierda
+    int y1 = max(A[1], B[1]); //y sup izquierda
+    int x2 = min(A[0] + A[2], B[0] + B[2]); //esquina superior derecha
+    int y2 = min(A[1] + A[3], B[1] + B[3]); //esqina inferior izquierda
 
     if (x1 < x2 && y1 < y2) {
         C[0] = x1;
@@ -168,11 +153,12 @@ void problema15(int *A, int *B, int *C){
 }
 
 int problema17(int num){
-    int suma=0;
-    while(num>1){
-        if(divisores(num)){
-            suma+=num;
+    int suma = 0;
+
+    for (int a = 1; a < num; a++) {
+        int b = sumaDivisores(a);
+        if (a != b && a == sumaDivisores(b)) {
+            suma += a;
         }
-        num--;
     }
     return suma;}

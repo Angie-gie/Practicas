@@ -5,8 +5,7 @@ using namespace std;
 
 int main()
 {
-
-    char *cadena1, *cadena2, *cadena, accion;;
+    char cadena1[256], cadena2[256], cadena[256], accion;
     short int problema;
     cout << "Ingrese numero de problema:" << endl;
     cin>>problema;
@@ -29,10 +28,15 @@ int main()
         cout << "El numero convertido a caracteres es: " << cadena << endl;
         break;}
     case 7:{
+        char cadena3[256];
         cout << "Ingrese la cadena: ";
-        cin >> cadena;
-        problema7(cadena);
-        break;}
+        cin >> cadena3;
+        cout<<"Original: "<<cadena3<<endl;
+        cout<<"Sin repetidos: ";
+        problema7(cadena3);
+
+        break;
+    }
     case 9:{
         long long int n;
         cout << "Ingrese n: ";
@@ -60,10 +64,10 @@ int main()
                      {0,0,4,15,4,1,6,0},
                      {0,0,7,12,6,9,10,4},
                      {5,0,6,10,6,4,8,0}};
-        problema13(*mat);
+        cout<<"Hay "<<problema13(*mat)<<" estrellas"<<endl;
         break;}
     case 15:{
-        int A[4], B[4], C[4];;
+        int A[4], B[4], C[4];
         cout << "Ingrese las coordenadas del rectangulo A (x y ancho altura): ";
             for (int i = 0; i < 4; ++i) {
             cin >> A[i];
@@ -86,7 +90,7 @@ int main()
         int num;
         cout << "Ingrese un numero: ";
         cin >>num;
-        problema17(num);
+        cout << "La suma es: "<<problema17(num)<<endl;
         break;}
     default:{
         break;}

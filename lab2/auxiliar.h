@@ -4,7 +4,6 @@
 #include <iostream>
 using namespace std;
 
-void eliminar(char *p, int n);
-bool divisores(int num);
+int sumaDivisores(int num);
 int potencia10(long int n);
 #endif // AUXILIAR_H
